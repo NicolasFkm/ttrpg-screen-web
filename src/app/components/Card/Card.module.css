@@ -1,0 +1,21 @@
+.cardSection {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    background-color: #eee;
+    flex-wrap: wrap;
+}
+
+.avatarColumn {
+    flex: 1 1 auto;
+}
+
+.statsColumn {
+    flex: 2 2 auto;
+    display: flex;
+}
+
+.statsColumn div {
+    flex: 1 1 33.33%;
+    
+}

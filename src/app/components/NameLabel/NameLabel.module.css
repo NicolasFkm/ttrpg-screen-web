@@ -1,0 +1,16 @@
+.label {
+    background-color: #6fc;
+    color: #17f;
+    font-weight: 700;
+    width: fit-content;
+    min-width: 125px;
+    line-height: 0.1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    margin: 0 auto;
+    margin-top: -10%;
+    position: sticky;
+    border: 4px solid #5ac;
+    border-radius: 5px;
+    font-size: x-large;
+}
