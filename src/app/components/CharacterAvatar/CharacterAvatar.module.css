@@ -1,7 +1,8 @@
 .avatarSection {
-    text-align: center;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .avatarCircle {
-    border: 5px solid #5ac
+  border: 5px solid #5ac;
 }

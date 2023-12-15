@@ -1,6 +1,26 @@
+.stat {
+  display: flex;
+  margin: auto;
+  height: 75px;
+}
+
+.stat span {
+  font-family: 'Allura', cursive;
+  font-weight: 900;
+  font-size: 1.3em;
+}
+
+.icon {
+  display: block;
+  margin: auto;
+  flex: 1 1 33.33%;
+}
+
 .content {
-    margin: 0 auto;
-    text-align: center;
-    margin-top: -60%;
-    font-weight: 900;
+  font-family: 'Allura', cursive;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: -65%;
+  font-weight: 900;
+  font-size: 1.9em;
 }

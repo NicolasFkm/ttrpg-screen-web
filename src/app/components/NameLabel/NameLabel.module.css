@@ -1,16 +1,33 @@
 .label {
-    background-color: #6fc;
-    color: #17f;
-    font-weight: 700;
-    width: fit-content;
-    min-width: 125px;
-    line-height: 0.1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    margin: 0 auto;
-    margin-top: -10%;
-    position: sticky;
-    border: 4px solid #5ac;
-    border-radius: 5px;
-    font-size: x-large;
+  background: #b21b1e;
+  width: fit-content;
+  min-width: 125px;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin: 0 auto;
+  margin-top: -20%;
+  position: sticky;
+  border: 1px solid #0000;
+  border-radius: 5px;
+}
+
+.label span {
+  font-family: 'Whisper', cursive;
+  color: #333;
+  font-weight: 700;
+  font-size: xx-large;
+}
+
+.class {
+  margin: auto;
+  text-align: center;
+  color: #b21b1e;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: x-large;
+}
+
+.class span {
+  font-family: 'Tangerine', cursive;
+  font-weight: 600;
 }

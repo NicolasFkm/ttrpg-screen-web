@@ -1,31 +1,101 @@
 import StatIcon from '../StatIcon/StatIcon';
 import CharacterAvatar from '../CharacterAvatar/CharacterAvatar';
 import styles from './Card.module.css';
-import { Space } from 'antd';
+import { ReactPropTypes, useRef, useState } from 'react';
+import { Form, Input, Modal } from 'antd';
+import { updateCharacterStatsById } from '@/services/characters/updateStats';
 
-export function Card() {
+export function Card({
+  id,
+  name,
+  charImage,
+  totalPv,
+  currentPv,
+  totalMana,
+  currentMana,
+  totalDef,
+  currentDef,
+  classDesc,
+  level,
+}: {
+  id: string;
+  name: string;
+  charImage: string;
+  totalPv: number;
+  currentPv: number;
+  totalMana: number;
+  currentMana: number;
+  totalDef: number;
+  currentDef: number;
+  classDesc: string;
+  level: string;
+}) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const lifePoints = useRef(null);
+  const manaPoints = useRef(null);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = async () => {
+    await updateCharacterStatsById(
+      id,
+      lifePoints?.current?.input?.value ?? 0,
+      manaPoints?.current?.input?.value ?? 0
+    );
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <section className={styles.cardSection}>
-      <div className={styles.avatarColumn}>
+      <div className={styles.avatar} onClick={showModal}>
         <CharacterAvatar
-          name='Code'
-          imageSrc='https://cdn.discordapp.com/attachments/1042145554324541472/1181086677695991879/nfukuyama_a_male_elf_ninja_redhead_scar_on_his_cheek_red_eyes_i_7dfa2079-caa8-46ce-9327-c9ea9d31ef24.png?ex=6589022f&is=65768d2f&hm=154f453fdb37e316d1a6d83c646b32ae91b5e3cf429506cc485b699cc096f9ac&'
+          classDesc={classDesc}
+          level={level}
+          name={name}
+          imageSrc={charImage}
         ></CharacterAvatar>
       </div>
-      <div className={styles.statsColumn}>
+      <div className={styles.stats}>
         <StatIcon
-          color='#f11'
+          color='purple'
           src='https://cdn-icons-png.flaticon.com/512/3892/3892597.png'
+          total={totalDef}
+          current={currentDef}
         ></StatIcon>
         <StatIcon
-          color='#1f1'
+          color='red'
           src='https://www.iconpacks.net/icons/1/free-heart-icon-492-thumb.png'
+          total={totalPv}
+          current={currentPv}
         ></StatIcon>
         <StatIcon
-          color='#11f'
-          src='https://cdn-icons-png.flaticon.com/512/2068/2068425.png'
+          color='blue'
+          src='https://www.shareicon.net/data/128x128/2016/10/12/843649_halloween_512x512.png'
+          total={totalMana}
+          current={currentMana}
         ></StatIcon>
       </div>
+      <Modal
+        title='Stats Change'
+        open={isModalOpen}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <Form onFinish={handleOk}>
+          <Form.Item label='PV'>
+            <Input placeholder='Life Points' color='red' ref={lifePoints} />
+          </Form.Item>
+          <Form.Item label='PM'>
+            <Input placeholder='Mana Points' color='blue' ref={manaPoints} />
+          </Form.Item>
+        </Form>
+      </Modal>
     </section>
   );
 }

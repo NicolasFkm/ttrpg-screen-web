@@ -1,21 +1,20 @@
 .cardSection {
-    padding: 20px;
-    width: 100%;
-    display: flex;
-    background-color: #eee;
-    flex-wrap: wrap;
+  padding: 10px;
+  min-width: 275px;
+  display: block;
+  box-shadow: 7px 8px 20px 0px #0000006e, 0 0 60px #8a4d0f inset;
+  background: #fffef0;
+  filter: url(#wavy2);
 }
 
-.avatarColumn {
-    flex: 1 1 auto;
+.avatar {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
 }
 
-.statsColumn {
-    flex: 2 2 auto;
-    display: flex;
-}
-
-.statsColumn div {
-    flex: 1 1 33.33%;
-    
+.stats {
+  display: flex;
+  margin: auto;
 }
