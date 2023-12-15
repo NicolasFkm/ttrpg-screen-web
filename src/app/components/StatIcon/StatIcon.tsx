@@ -16,7 +16,7 @@ export default function StatIcon({
   return (
     <div className={styles.stat}>
       <Ribbon color={color} text={total}>
-        <Avatar className={styles.icon} src={src} size={85}></Avatar>
+        <Avatar className={styles.icon} src={src} size={50}></Avatar>
         <p className={`${styles.content} ${color}`}>{current}</p>
       </Ribbon>
     </div>

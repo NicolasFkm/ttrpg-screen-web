@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 4rem;
+  padding: 1rem;
   flex-flow: wrap;
   flex-basis: 25%;
   min-height: 100vh;
