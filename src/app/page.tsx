@@ -10,15 +10,17 @@ import { wsCallback } from '@/services/realTime';
 import { isBinary } from 'istextorbinary';
 import HandoutUploader from './components/Handouts/HandoutUploader/HandoutUploader';
 import HandoutModal from './components/Handouts/HandoutModal/HandoutModal';
+import { useSearchParams } from 'next/navigation';
 
 export default function Home({ searchParams }: { searchParams: any }) {
+  const queryParams = useSearchParams();
   const handoutModal = useRef<any>();
   const [isAdmin, setIsAdmin] = useState(false);
   const [file, setFile] = useState(new Blob());
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    setIsAdmin(searchParams.admin === 'true');
+    setIsAdmin(queryParams?.get('admin') === 'true');
   }, []);
 
   const onUpdate: wsCallback = (msg: MessageEvent<any>) => {
@@ -82,10 +84,15 @@ export default function Home({ searchParams }: { searchParams: any }) {
                 ></Card>
               ))}
           </main>
-          {isAdmin && <HandoutUploader></HandoutUploader>}
         </div>
       </div>
+      {isAdmin && <HandoutUploader></HandoutUploader>}
       {file && <HandoutModal ref={handoutModal} file={file}></HandoutModal>}
+      <script>var AlwaysUseSilk = true</script>
+      <script
+        defer
+        src='https://dagammla.gitlab.io/keep-silk-open/keep.js'
+      ></script>
     </div>
   );
 }

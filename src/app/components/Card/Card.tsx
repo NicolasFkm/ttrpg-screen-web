@@ -4,7 +4,7 @@ import styles from './Card.module.css';
 import { useRef, useState } from 'react';
 import { Badge, Form, Input, Modal } from 'antd';
 import { updateCharacterStatsById } from '@/services/characters/updateStats';
-import Ribbon from 'antd/lib/badge/Ribbon';
+import { FireTwoTone, HeartTwoTone } from '@ant-design/icons';
 
 export function Card({
   id,
@@ -78,13 +78,13 @@ export function Card({
         ></StatIcon> */}
         <StatIcon
           color='red'
-          src='https://www.iconpacks.net/icons/1/free-heart-icon-492-thumb.png'
+          icon={<HeartTwoTone twoToneColor='firebrick' size={20} />}
           total={totalPv}
           current={currentPv}
         ></StatIcon>
         <StatIcon
           color='blue'
-          src='https://www.shareicon.net/data/128x128/2016/10/12/843649_halloween_512x512.png'
+          icon={<FireTwoTone twoToneColor='navy' size={20} />}
           total={totalMana}
           current={currentMana}
         ></StatIcon>

@@ -17,7 +17,7 @@ export function NameLabel({
       </div>
       <div className={styles.class}>
         <span>
-          {classDesc} {level}
+          {classDesc}, {level}
         </span>
       </div>
     </>

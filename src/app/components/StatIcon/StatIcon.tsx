@@ -1,29 +1,31 @@
-import { Avatar } from 'antd';
+import { ReactNode } from 'react';
 import Ribbon from 'antd/lib/badge/Ribbon';
 import styles from './StatIcon.module.css';
+import { HeartTwoTone } from '@ant-design/icons';
 
 export default function StatIcon({
   color,
-  src,
+  icon,
   total,
   current,
 }: {
   color: string;
-  src: string;
+  icon: ReactNode;
   total: number;
   current: number;
 }) {
   return (
     <div className={styles.stat}>
-      <Ribbon
+      {/* <Ribbon
         placement='start'
         className={styles.ribbon}
         color={color}
         text={total}
-      >
-        <Avatar className={styles.icon} src={src} size={45}></Avatar>
-        <p className={`${styles.content} ${color}`}>{current}</p>
-      </Ribbon>
+      > */}
+      <div className={`${styles.content} ${color}`}>
+        {icon} {current} <sup>/{total}</sup>
+      </div>
+      {/* </Ribbon> */}
     </div>
   );
 }
