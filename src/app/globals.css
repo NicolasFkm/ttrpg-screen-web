@@ -342,11 +342,9 @@ p.general {
     #fff calc(100% - var(--border) + 1px)
   );
 }
-img {
-  border-radius: 999px;
+.character-list img {
+  border-radius: 50%;
   display: block;
-  width: calc(100vw - 80px);
   max-width: 360px;
-  height: auto;
   object-position: top;
 }

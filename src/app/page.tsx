@@ -1,5 +1,6 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 import { Card } from './components/Card/Card';
 import styles from './page.module.css';
 import {
@@ -8,15 +9,35 @@ import {
 } from '@/services/characters/fetchCharacterData';
 import { wsCallback } from '@/services/realTime';
 import { isBinary } from 'istextorbinary';
+import HandoutUploader from './components/Handouts/HandoutUploader/HandoutUploader';
+import HandoutModal from './components/Handouts/HandoutModal/HandoutModal';
 
-export default function Home() {
+export default function Home({ searchParams }: { searchParams: any }) {
+  const router = useRouter();
   const [characters, setCharacters] = useState([]);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [file, setFile] = useState(new Blob());
+  const handoutModal = useRef();
+
+  useEffect(() => {
+    setIsAdmin(searchParams.admin === 'true');
+  }, []);
 
   const onUpdate: wsCallback = (msg: MessageEvent<any>) => {
-    // if (isBinary(msg)) {
-    //   console.log('Buffer');
-    //   return;
-    // }
+    const isBuffer = isBinary(undefined, msg.data, () => {});
+
+    console.log(msg.data);
+
+    console.log(isBuffer);
+
+    if (
+      msg.data instanceof Blob ||
+      (isBuffer !== null && isBuffer! !== false)
+    ) {
+      setFile(msg.data);
+      handoutModal?.current?.showModal();
+      return;
+    }
 
     const data = JSON.parse(msg.data as string);
     setCharacters(data);
@@ -48,7 +69,7 @@ export default function Home() {
             className='corner-decoration corner-left-bottom'
             src='https://i.ibb.co/4mKvK3N/corner-decoration.jpg'
           ></img>
-          <main className={styles.main}>
+          <main className={`${styles.main} character-list`}>
             {characters &&
               characters.map((character: any, index: number) => (
                 <Card
@@ -67,8 +88,10 @@ export default function Home() {
                 ></Card>
               ))}
           </main>
+          {isAdmin && <HandoutUploader></HandoutUploader>}
         </div>
       </div>
+      {file && <HandoutModal ref={handoutModal} file={file}></HandoutModal>}
     </div>
   );
 }
