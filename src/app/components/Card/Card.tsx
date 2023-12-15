@@ -2,8 +2,9 @@ import StatIcon from '../StatIcon/StatIcon';
 import CharacterAvatar from '../CharacterAvatar/CharacterAvatar';
 import styles from './Card.module.css';
 import { useRef, useState } from 'react';
-import { Form, Input, Modal } from 'antd';
+import { Badge, Form, Input, Modal } from 'antd';
 import { updateCharacterStatsById } from '@/services/characters/updateStats';
+import Ribbon from 'antd/lib/badge/Ribbon';
 
 export function Card({
   id,
@@ -53,21 +54,28 @@ export function Card({
 
   return (
     <section className={styles.cardSection}>
-      <div className={styles.avatar} onClick={showModal}>
-        <CharacterAvatar
-          classDesc={classDesc}
-          level={level}
-          name={name}
-          imageSrc={charImage}
-        ></CharacterAvatar>
-      </div>
+      <Badge
+        className={styles.badge}
+        count={`CA ${currentDef}`}
+        color='gray'
+        size='small'
+      >
+        <div className={styles.avatar} onClick={showModal}>
+          <CharacterAvatar
+            classDesc={classDesc}
+            level={level}
+            name={name}
+            imageSrc={charImage}
+          ></CharacterAvatar>
+        </div>
+      </Badge>
       <div className={styles.stats}>
-        <StatIcon
+        {/* <StatIcon
           color='purple'
           src='https://cdn-icons-png.flaticon.com/512/3892/3892597.png'
           total={totalDef}
           current={currentDef}
-        ></StatIcon>
+        ></StatIcon> */}
         <StatIcon
           color='red'
           src='https://www.iconpacks.net/icons/1/free-heart-icon-492-thumb.png'

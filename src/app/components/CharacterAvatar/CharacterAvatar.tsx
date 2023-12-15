@@ -15,7 +15,7 @@ export default function CharacterAvatar({
 }) {
   return (
     <div className={styles.avatarSection}>
-      <Avatar className='img-wrap' size={200} src={imageSrc}></Avatar>
+      <Avatar className='img-wrap' size={150} src={imageSrc}></Avatar>
       <NameLabel classDesc={classDesc} level={level} name={name}></NameLabel>
     </div>
   );

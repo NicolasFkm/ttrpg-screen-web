@@ -1,7 +1,7 @@
 .stat {
   display: flex;
   margin: auto;
-  height: 75px;
+  height: 40px;
 }
 
 .stat span {
@@ -10,17 +10,24 @@
   font-size: 1em;
 }
 
+.ribbon {
+  line-height: 1;
+  padding: 0 5px;
+}
+
 .icon {
   display: block;
   margin: auto;
-  flex: 1 1 33.33%;
+  flex: 1 1 50%;
+  margin-left: 15px;
 }
 
 .content {
   font-family: 'Allura', cursive;
   margin: 0 auto;
+  margin-left: 15px;
   text-align: center;
-  margin-top: -65%;
+  margin-top: -53%;
   font-weight: 900;
   font-size: 1.3em;
 }

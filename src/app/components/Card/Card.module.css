@@ -1,6 +1,6 @@
 .cardSection {
   padding: 10px;
-  min-width: 275px;
+  min-width: 100px;
   display: block;
   box-shadow: 7px 8px 20px 0px #0000006e, 0 0 60px #8a4d0f inset;
   background: #fffef0;
@@ -17,4 +17,10 @@
 .stats {
   display: flex;
   margin: auto;
+  gap: 10px;
+}
+
+.badge sup {
+  margin-right: 20px !important;
+  box-shadow: 0 0 0 2px #0000002e !important;
 }
