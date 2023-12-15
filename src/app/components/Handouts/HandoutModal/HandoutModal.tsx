@@ -35,5 +35,5 @@ const HandoutModal = forwardRef(
     );
   }
 );
-
+HandoutModal.displayName = 'HandoutModal';
 export default HandoutModal;
