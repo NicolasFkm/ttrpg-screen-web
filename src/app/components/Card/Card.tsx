@@ -31,8 +31,8 @@ export function Card({
   level: string;
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const lifePoints = useRef(null);
-  const manaPoints = useRef(null);
+  const lifePoints = useRef<any>(null);
+  const manaPoints = useRef<any>(null);
 
   const showModal = () => {
     setIsModalOpen(true);
