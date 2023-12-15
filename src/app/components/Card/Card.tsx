@@ -34,6 +34,7 @@ export function Card({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const lifePoints = useRef<any>(null);
   const manaPoints = useRef<any>(null);
+  const initiative = useRef<any>(null);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -43,7 +44,8 @@ export function Card({
     await updateCharacterStatsById(
       id,
       lifePoints?.current?.input?.value ?? 0,
-      manaPoints?.current?.input?.value ?? 0
+      manaPoints?.current?.input?.value ?? 0,
+      initiative?.current?.input?.value ?? 0
     );
     setIsModalOpen(false);
   };
@@ -70,12 +72,6 @@ export function Card({
         </div>
       </Badge>
       <div className={styles.stats}>
-        {/* <StatIcon
-          color='purple'
-          src='https://cdn-icons-png.flaticon.com/512/3892/3892597.png'
-          total={totalDef}
-          current={currentDef}
-        ></StatIcon> */}
         <StatIcon
           color='red'
           icon={<HeartTwoTone twoToneColor='firebrick' size={20} />}
@@ -101,6 +97,9 @@ export function Card({
           </Form.Item>
           <Form.Item label='PM'>
             <Input placeholder='Mana Points' color='blue' ref={manaPoints} />
+          </Form.Item>
+          <Form.Item label='Initiative'>
+            <Input placeholder='Initiative' color='gray' ref={initiative} />
           </Form.Item>
         </Form>
       </Modal>
