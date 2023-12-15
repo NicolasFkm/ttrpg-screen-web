@@ -24,10 +24,6 @@ export default function Home({ searchParams }: { searchParams: any }) {
   const onUpdate: wsCallback = (msg: MessageEvent<any>) => {
     const isBuffer = isBinary(undefined, msg.data, () => {});
 
-    console.log(msg.data);
-
-    console.log(isBuffer);
-
     if (
       msg.data instanceof Blob ||
       (isBuffer !== null && isBuffer! !== false)
