@@ -1,4 +1,4 @@
-import { Avatar, Badge, Image } from 'antd';
+import { Avatar } from 'antd';
 import Ribbon from 'antd/lib/badge/Ribbon';
 import styles from './StatIcon.module.css';
 

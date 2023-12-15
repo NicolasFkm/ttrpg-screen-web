@@ -1,6 +1,6 @@
 import configs from '../../../../configs';
 import { UploadOutlined } from '@ant-design/icons';
-import { Button, FloatButton, Upload, UploadProps, message } from 'antd';
+import { FloatButton, Upload, UploadProps, message } from 'antd';
 
 const BASE_URL = configs.env.HTTP_BASE_URL;
 

@@ -1,5 +1,4 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { Card } from './components/Card/Card';
 import styles from './page.module.css';
@@ -13,10 +12,10 @@ import HandoutUploader from './components/Handouts/HandoutUploader/HandoutUpload
 import HandoutModal from './components/Handouts/HandoutModal/HandoutModal';
 
 export default function Home({ searchParams }: { searchParams: any }) {
-  const [characters, setCharacters] = useState([]);
+  const handoutModal = useRef<any>();
   const [isAdmin, setIsAdmin] = useState(false);
   const [file, setFile] = useState(new Blob());
-  const handoutModal = useRef<any>();
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     setIsAdmin(searchParams.admin === 'true');

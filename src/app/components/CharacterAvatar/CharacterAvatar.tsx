@@ -1,4 +1,4 @@
-import { Avatar, Badge, Image } from 'antd';
+import { Avatar } from 'antd';
 import { NameLabel } from '../NameLabel/NameLabel';
 import styles from './CharacterAvatar.module.css';
 

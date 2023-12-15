@@ -1,7 +1,7 @@
 import StatIcon from '../StatIcon/StatIcon';
 import CharacterAvatar from '../CharacterAvatar/CharacterAvatar';
 import styles from './Card.module.css';
-import { ReactPropTypes, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Form, Input, Modal } from 'antd';
 import { updateCharacterStatsById } from '@/services/characters/updateStats';
 
